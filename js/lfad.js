@@ -32,7 +32,7 @@ function boxToFill(input, wl) {
 	});
 }
 function submit(form){
-	$.post('./love-from-a-distance-ss/love-from-a-distance-ss.php',form, function (d){
+	$.post('./love-from-afar-ss/love-from-afar-ss.php',form, function (d){
 		console.log(d);
 	});
 }

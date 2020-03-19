@@ -1,5 +1,5 @@
 {
-	"name": "love-from-a-distance",
+	"name": "love-from-afar",
 	"version": "0.0.1",
 	"description": "A LARP game that we can play while trapped at home.",
 	"main": "lfad.js",
@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/TheOtherRealm/love-from-a-distance.git"
+		"url": "git+https://github.com/TheOtherRealm/love-from-afar.git"
 	},
 	"keywords": [
 		"larp"
@@ -16,9 +16,9 @@
 	"author": "Aaron E-J",
 	"license": "AGPL-3.0-or-later",
 	"bugs": {
-		"url": "https://github.com/TheOtherRealm/love-from-a-distance/issues"
+		"url": "https://github.com/TheOtherRealm/love-from-afar/issues"
 	},
-	"homepage": "https://github.com/TheOtherRealm/love-from-a-distance#readme",
+	"homepage": "https://github.com/TheOtherRealm/love-from-afar#readme",
 	"dependencies": {
 		"@popperjs/core": "^2.1.1",
 		"@yaireo/tagify": "^3.6.3",
