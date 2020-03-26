@@ -14,3 +14,15 @@
 *{
 	font-family: serif;
 }
+.subscript{
+	font-variant-position: sub;
+}
+.superscript{
+	font-variant-position: super;
+}
+.gray{
+	color:lightgray;
+}
+.bold{
+	font-weight: 900;
+}

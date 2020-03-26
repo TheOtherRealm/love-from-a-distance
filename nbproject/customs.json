@@ -3,6 +3,9 @@
 	"attributes": {
 		"formaction": {
 			"context": "button"
+		},
+		"minlength": {
+			"context": "textarea"
 		}
 	}
 }
