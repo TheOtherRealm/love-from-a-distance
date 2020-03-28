@@ -32,13 +32,42 @@
 			}
 		});
 	}
-	$('#intrestForm').submit(function (f) {
+	var pages = {"login": "login.html", "you": "aboutyou.html", "yourlover": "whoyoulove.html"};
+	$('#intrestForm').click(function (f) {
+		var formPage = $('#login').attr('data-button');
+		console.log($(this).attr('data-button'));
 		var form = JSON.parse(JSON.stringify($(this).serializeArray()));
-		console.log(form);
+		form.push({"name": "form", "value": formPage});
 		$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
 			console.log(d);
 //			$('#results').html(d.interests[0].value);
+		}).done(function () {
+			location.href = pages[$(this).attr('data-button').value];
 		});
+		f.preventDefault();
+	});
+	$('#save').click(function (f) {
+		var formPage = $(this).attr('data-button');
+		var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
+		formPage = form.value;
+		form.push({"name": "form", "value": formPage});
+		console.log(f);
+		$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
+			console.log(d);
+		});
+		f.preventDefault();
+	});
+
+	$('#backB').click(function (f) {
+		var formPage = $(this).attr('data-button');
+		var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
+		formPage = $('#intrestForm').attr('name');
+		form.push({"name": "form", "value": formPage});
+		console.log(f);
+		$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
+			console.log(d);
+		});
+		window.history.back();
 		f.preventDefault();
 	});
 	$("input[name|='be']").on('ready DOMContentLoaded change', function (d) {
@@ -71,4 +100,17 @@
 			console.log($(this));
 		}
 	});
+	function encrypt() {
+		var pass = document.getElementById('password').value;
+		var hide = document.getElementById('hide').value;
+		if (pass === "") {
+			document.getElementById('err').innerHTML = 'Error:Password is missing';
+			return false;
+		} else {
+			document.getElementById("hide").value = document.getElementById("password").value;
+			var hash = CryptoJS.MD5(pass);
+			document.getElementById('password').value = hash;
+			return true;
+		}
+	}
 })(jQuery);

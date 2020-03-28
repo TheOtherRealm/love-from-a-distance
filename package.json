@@ -24,6 +24,7 @@
 		"@yaireo/tagify": "^3.6.3",
 		"bootstrap": "4.4.1",
 		"cordova-plugin-geolocation": "^4.0.2",
+		"crypto-js": "^4.0.0",
 		"jquery": "3.4.1",
 		"minimist": "^1.2.5",
 		"nodejs": "0.0.0",
