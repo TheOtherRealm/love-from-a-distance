@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "love-from-afar",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
