@@ -4,7 +4,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import './you.css';
 
 const you: React.FC = () => {
-	const [text, setText] = useState<string>();
 	return (
 		<IonPage>
 			<IonHeader>

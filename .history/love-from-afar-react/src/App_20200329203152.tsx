@@ -42,18 +42,18 @@ const App: React.FC = () => (
           <Route path="/home" component={home} exact={true} />
           <Route path="/you" component={you} exact={true} />
           <Route path="/yourlover" component={yourlover} />
-          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
+          <IonTabButton tab="home" href="/tab1">
             <IonIcon icon={triangle} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="you" href="/you">
+          <IonTabButton tab="you" href="/tab2">
             <IonIcon icon={ellipse} />
             <IonLabel>You</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="yourlover" href="/yourlover">
+          <IonTabButton tab="yourlover" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Your Lover</IonLabel>
           </IonTabButton>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonTextarea, IonItem, IonLabel, IonItemDivider, IonList } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './you.css';
 
 const you: React.FC = () => {
-	const [text, setText] = useState<string>();
 	return (
 		<IonPage>
 			<IonHeader>

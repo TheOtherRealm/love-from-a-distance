@@ -42,10 +42,10 @@ const App: React.FC = () => (
           <Route path="/home" component={home} exact={true} />
           <Route path="/you" component={you} exact={true} />
           <Route path="/yourlover" component={yourlover} />
-          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="//" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
+          <IonTabButton tab="home" href="/">
             <IonIcon icon={triangle} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
