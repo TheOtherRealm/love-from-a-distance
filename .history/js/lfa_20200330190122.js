@@ -11,22 +11,13 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU Affero General Public License for more details: <http://www.gnu.org/licenses/>.
  */
-/* global tagify, CryptoJS 
-
-		title: "Love From Afar",
-*/
-Vue.component('be',{
-	props:['tobe'],
-	template:'<input type="radio" :id="tobe" :name="tobe" :value="tobe" required><label :for="tobe">{{tobe.text}}</label>'
+/* global tagify, CryptoJS */
+Vue.component('about',{
+	template:'<h1>you</h1>'
 });
 var app = new Vue({
-	el: '#app',
+	el: '#hTitle',
 	data: {
-		be:[
-			{id:'yourself',text:"Yourself"},
-			{id:'predesigned',text:"Yourself"},
-			{id:'yourself',text:"Yourself"},
-			{id:'yourself',text:"Yourself"}
-		]
+		title: "Love From Afar"
 	}
 });

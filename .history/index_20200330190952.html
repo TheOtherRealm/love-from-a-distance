@@ -24,14 +24,14 @@
 	<script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 	<script src="node_modules/vue/dist/vue.js" type="text/javascript"></script>
 	<script>
-		// $("input[name|='be']").ready(function () {
-		// 	$("input[name|='be']").prop('checked', false);
-		// 	$('#objectives,#about').prop('required', true);
-		// 	var obAbVal = $('#objectives');
-		// 	//				$('#objectives,#about').prop('minlength', 150);
-		// 	$('#objectives').prop('minlength', 150);
-		// 	$('#about').prop('minlength', 150);
-		// });
+		$("input[name|='be']").ready(function () {
+			$("input[name|='be']").prop('checked', false);
+			$('#objectives,#about').prop('required', true);
+			var obAbVal = $('#objectives');
+			//				$('#objectives,#about').prop('minlength', 150);
+			$('#objectives').prop('minlength', 150);
+			$('#about').prop('minlength', 150);
+		});
 	</script>
 	<script src="node_modules/@yaireo/tagify/dist/tagify.min.js" type="text/javascript"></script>
 	<script src="node_modules/@yaireo/tagify/dist/tagify.polyfills.min.js" type="text/javascript"></script>
@@ -41,8 +41,8 @@
 	<div id="app">
 		<!--Love From Afar-->
 		<h1 id="hTitle">{{title}}</h1>
-		<be v-for='waysto in be' v-bind:tobe='waysto' v-bind:key="id"></be>
-		<!-- <p>Would you like to be <span class="bold">yourself</span>, a <span class='bold'>predesigned</span> fictional
+		<about></about>
+		<p>Would you like to be <span class="bold">yourself</span>, a <span class='bold'>predesigned</span> fictional
 			character<span class='gray superscript' title="(Potentially costs money)">$</span>, a fictional character
 			<span class='bold'>you create</span>, or <span class='bold'>multiple</span> characters<span
 				class='gray superscript' title="(Potentially costs money)">$</span>?<br>
@@ -54,7 +54,7 @@
 				for="becreatedbyyou">A fictional character created by you</label> &nbsp;
 			<input type="radio" id="bemultiple" name="be" value="multiple" required><label for="bemultiple">Multiple
 				characters</label>
-		</p> -->
+		</p>
 		<!-- <div id="formRapper">
 				<form id="intrestForm">
 					<p>

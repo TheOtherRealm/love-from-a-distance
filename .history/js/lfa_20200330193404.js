@@ -12,20 +12,16 @@
  GNU Affero General Public License for more details: <http://www.gnu.org/licenses/>.
  */
 /* global tagify, CryptoJS 
-
-		title: "Love From Afar",
 */
 Vue.component('be',{
-	props:['tobe'],
-	template:'<input type="radio" :id="tobe" :name="tobe" :value="tobe" required><label :for="tobe">{{tobe.text}}</label>'
+	props:['yourself', 'predesigned', 'createdbyyou','multiple'],
+	template:'<input type="radio" id="be{{be.}}" name="be" value="yourself" required><label for="beyourself">Yourself</label>'
 });
 var app = new Vue({
 	el: '#app',
 	data: {
+		title: "Love From Afar",
 		be:[
-			{id:'yourself',text:"Yourself"},
-			{id:'predesigned',text:"Yourself"},
-			{id:'yourself',text:"Yourself"},
 			{id:'yourself',text:"Yourself"}
 		]
 	}

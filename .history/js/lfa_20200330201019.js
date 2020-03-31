@@ -12,8 +12,6 @@
  GNU Affero General Public License for more details: <http://www.gnu.org/licenses/>.
  */
 /* global tagify, CryptoJS 
-
-		title: "Love From Afar",
 */
 Vue.component('be',{
 	props:['tobe'],
@@ -22,6 +20,7 @@ Vue.component('be',{
 var app = new Vue({
 	el: '#app',
 	data: {
+		title: "Love From Afar",
 		be:[
 			{id:'yourself',text:"Yourself"},
 			{id:'predesigned',text:"Yourself"},
