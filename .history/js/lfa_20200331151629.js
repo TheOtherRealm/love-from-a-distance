@@ -32,7 +32,7 @@ var app = new Vue({
 	}
 });
 (function ($) {
-	$('input').change(function (d) {
+	$('input:be').change(function (d) {
 		console.log($(this).val());
 	});
 })(jQuery);

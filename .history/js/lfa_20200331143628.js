@@ -15,24 +15,19 @@
 
 		title: "Love From Afar",
 */
-Vue.component('be', {
-	props: ['tobe'],
-	template: '<div><input type="radio" :id="tobe.id" name="be" :value="tobe.id" required> <label :for="tobe.id">{{tobe.text}}</label></div>'
+Vue.component('be',{
+	props:['tobe'],
+	template:'<div>{{tobe.text}}</div>'
 });
 var app = new Vue({
 	el: '#app',
 	data: {
 		title: "Love From Afar",
-		be: [
-			{ id: 'yourself', text: "Yourself" },
-			{ id: 'predesigned', text: "Pedesigned" },
-			{ id: 'createdbyyou', text: "Created by you" },
-			{ id: 'multiple', text: "Multiple" }
+		be:[
+			{id:'yourself',text:"Yourself"},
+			{id:'predesigned',text:"Pedesigned"},
+			{id:'createdbyyou',text:"Yourself"},
+			{id:'yourself',text:"Yourself"}
 		]
 	}
 });
-(function ($) {
-	$('input').change(function (d) {
-		console.log($(this).val());
-	});
-})(jQuery);

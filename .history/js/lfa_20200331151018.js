@@ -17,7 +17,7 @@
 */
 Vue.component('be', {
 	props: ['tobe'],
-	template: '<div><input type="radio" :id="tobe.id" name="be" :value="tobe.id" required> <label :for="tobe.id">{{tobe.text}}</label></div>'
+	template: '<div><input type="radio" :id="tobe.id" :name="tobe.id" :value="tobe.id" required> <label :for="tobe.id">{{tobe.text}}</label></div>'
 });
 var app = new Vue({
 	el: '#app',
@@ -32,7 +32,5 @@ var app = new Vue({
 	}
 });
 (function ($) {
-	$('input').change(function (d) {
-		console.log($(this).val());
-	});
+	$('input')
 })(jQuery);
