@@ -41,14 +41,26 @@
 	<div id="app">
 		<!--Love From Afar-->
 		<h1 id="hTitle">{{title}}</h1>
-		<div id="formRapper">
-			<form id="intrestForm">
-				<p>Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span>
-					fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional
-					character<span class="bold">you create</span>, or <span class="bold">multiple</span> characters<span
-						class="gray superscript" title="(Potentially costs money)">$</span>?<br>
-					<be v-for='waysto in be' v-bind:tobe='waysto' v-bind:key="waysto.id"></be>
-					<!-- 
+		<p>Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional
+			character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional
+			character<span class="bold">you create</span>, or <span class="bold">multiple</span> characters<span
+				class="gray superscript" title="(Potentially costs money)">$</span>?<br>
+			<be v-for='waysto in be' v-bind:tobe='waysto' v-bind:key="waysto.id"></be>
+			<!-- <p>Would you like to be <span class="bold">yourself</span>, a <span class='bold'>predesigned</span> fictional
+			character<span class='gray superscript' title="(Potentially costs money)">$</span>, a fictional character
+			<span class='bold'>you create</span>, or <span class='bold'>multiple</span> characters<span
+				class='gray superscript' title="(Potentially costs money)">$</span>?<br>
+			<input type="radio" id="beyourself" name="be" value="yourself" required><label for="beyourself">Yourself
+			</label> &nbsp;
+			<input type="radio" id="bepredesigned" name="be" value="predesigned" required><label for="bepredesigned">A
+				predesigned fictional character</label>&nbsp;
+			<input type="radio" id="becreatedbyyou" name="be" value="createdbyyou" required><label
+				for="becreatedbyyou">A fictional character created by you</label> &nbsp;
+			<input type="radio" id="bemultiple" name="be" value="multiple" required><label for="bemultiple">Multiple
+				characters</label>
+		</p> -->
+			<!-- <div id="formRapper">
+				<form id="intrestForm">
 					<p>
 						<label for="name">Enter your name<span class='gray'>*</span>:</label><br>
 						<input type="text" id="name" name='name' placeholder="Your Name" required class="form-control">
@@ -93,11 +105,11 @@
 					<p>
 						<button type="submit" formenctype="application/x-www-form-urlencoded" form='intrestForm' class="btn btn-primary" id="submit" name="submit" formmethod="post">Submit</button>
 					</p>
+				</form>
+			</div>
 			<div id="results">
 
 			</div> -->
-			</form>
-		</div>
 	</div>
 	<script src="node_modules/@popperjs/core/dist/umd/popper.js" type="text/javascript"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
