@@ -1,7 +1,0 @@
-{
-  "name": "love-from-afar",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
