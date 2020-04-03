@@ -13,8 +13,8 @@
  */
 /* global tagify, CryptoJS 
 */
-Vue.component('profile', {
-	props: [''],
+Vue.component('be', {
+	props: ['tobe'],
 	template: `
 	<form id="intrestForm">
 		<input type="radio" :id="tobe.id" name="be" v-model="be" :value="tobe.id" required>

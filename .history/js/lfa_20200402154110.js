@@ -13,13 +13,9 @@
  */
 /* global tagify, CryptoJS 
 */
-Vue.component('profile', {
-	props: [''],
-	template: `
-	<form id="intrestForm">
-		<input type="radio" :id="tobe.id" name="be" v-model="be" :value="tobe.id" required>
-		<label :for="tobe.id">{{tobe.text}}</label>
-	</form>`,
+Vue.component('be', {
+	props: ['tobe'],
+	template: '<div><input type="radio" :id="tobe.id" name="be" v-model="be" :value="tobe.id" required> <label :for="tobe.id">{{tobe.text}}</label></div>',
 	data:function(){
 		return{
 			

@@ -44,8 +44,7 @@
 		<div id="formRapper">
 			<form id="intrestForm">
 				<p>Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional character<span class="bold">you create</span>, or <span class="bold">multiple</span> characters<span class="gray superscript" title="(Potentially costs money)">$</span>?<br>
-					<be name="be" v-for='waysto in be' v-model="be" :tobe='waysto' :key="waysto.id"
-						value="waysto.text" v-on:change="$emit('anewwaytobe',waysto)"></be>
+					<be name="be" v-for='waysto in be' v-model="be" :tobe='waysto' :key="waysto.id" :value="waysto.text"></be>
 					<!-- 
 					<p>
 						<label for="name">Enter your name<span class='gray'>*</span>:</label><br>
@@ -91,7 +90,7 @@
 					<p>
 						<button type="submit" formenctype="application/x-www-form-urlencoded" form='intrestForm' class="btn btn-primary" id="submit" name="submit" formmethod="post">Submit</button>
 					</p> -->
-					<div id="results" v-on:anewwaytobe="aNewWayToBe"></div>
+			<div id="results">{{resul}}</div>
 			</form>
 		</div>
 	</div>

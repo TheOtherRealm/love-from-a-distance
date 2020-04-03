@@ -13,7 +13,7 @@
  */
 /* global tagify, CryptoJS 
 */
-Vue.component('profile', {
+Vue.component('be', {
 	props: [''],
 	template: `
 	<form id="intrestForm">

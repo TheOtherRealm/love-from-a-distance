@@ -13,30 +13,24 @@
  */
 /* global tagify, CryptoJS 
 */
-Vue.component('profile', {
-	props: [''],
-	template: `
-	<form id="intrestForm">
-		<input type="radio" :id="tobe.id" name="be" v-model="be" :value="tobe.id" required>
-		<label :for="tobe.id">{{tobe.text}}</label>
-	</form>`,
-	data:function(){
-		return{
-			
-		}
-	}
+Vue.component('be', {
+	props: ['tobe'],
+	template: '<div><input type="radio" :id="tobe.id" name="be" :value="tobe.id" required> <label :for="tobe.id">{{tobe.text}}</label></div>'
 });
 var app = new Vue({
 	el: '#app',
-	data() {
-		return {
-			title: "Love From Afar",
-			be: [
-				{ id: 'yourself', text: "Yourself", value: this.id },
-				{ id: 'predesigned', text: "Predesigned", value: this.id },
-				{ id: 'createdbyyou', text: "Created by you", value: this.id },
-				{ id: 'multiple', text: "Multiple", value: this.id }
-			]
+	data: {
+		title: "Love From Afar",
+		be: [
+			{ id: 'yourself', text: "Yourself",va },
+			{ id: 'predesigned', text: "Predesigned" },
+			{ id: 'createdbyyou', text: "Created by you" },
+			{ id: 'multiple', text: "Multiple" }
+		]
+	},
+	computed:{
+		resul:function(){
+			return this.beme.selected;
 		}
 	}
 });
