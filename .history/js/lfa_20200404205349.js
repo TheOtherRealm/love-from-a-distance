@@ -84,11 +84,11 @@
 		}
 	}
 	/*
-<label for="about">About you or your character (please be as descriptive as possible – essay style if
-					you want!)<span class='gray'>*</span>:</label><br>
-				<textarea id="about" maxlength="100000" minlength="150" name="about" class="form-control"
-						  placeholder="Please be as descriptive as possible – essay style if you want!"
-						  required></textarea>
+<label for="location">The town or city, state or province, and nation you live in. (So that you can
+						try to find someone close by, and if we can ever leave, meet up in person!)<span
+							  class='gray'>*</span>:</label><br>
+					<input type="text" id="location" name="location" class="form-control" placeholder="Boston, MA USA"
+						   required>
 	*/
 	Handlebars.registerHelper('input-text', function (c, o) {
 		var html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\

@@ -52,9 +52,25 @@
 					{{/each}}
 				</select>
 				{{#input-text you.gender}}{{{gender}}}{{/input-text}}
-				{{#input-text you.sexualAttraction}}{{{sexualAttraction}}}{{/input-text}}
-				{{#input-text you.interests}}{{{interests}}}{{/input-text}}
-				{{#input-text you.location}}{{{interests}}}{{/input-text}}
+				{{#input-text you.gender}}{{{gender}}}{{/input-text}}
+				<p>
+					<label for="sexualAttraction">Enter your what gender you are attracted to, if it doesn't matter,
+						don't put anything:</label><br>
+					<input type="text" id="sexualAttraction" name='sexualAttraction'
+						   placeholder="Your gender of attraction" class="form-control">
+				</p>
+				<p>
+					<label for="interests">Enter your interests<span class='gray'>*</span>:</label><br>
+					<input type="text" id="interests" name="interests" class="tagify--outside form-control"
+						   placeholder="Your interests" required>
+				</p>
+				<p>
+					<label for="location">The town or city, state or province, and nation you live in. (So that you can
+						try to find someone close by, and if we can ever leave, meet up in person!)<span
+							  class='gray'>*</span>:</label><br>
+					<input type="text" id="location" name="location" class="form-control" placeholder="Boston, MA USA"
+						   required>
+				</p>
 				<label for="about">About you or your character (please be as descriptive as possible – essay style if
 					you want!)<span class='gray'>*</span>:</label><br>
 				<textarea id="about" maxlength="100000" minlength="150" name="about" class="form-control"

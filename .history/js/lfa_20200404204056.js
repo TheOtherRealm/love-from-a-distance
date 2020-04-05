@@ -22,7 +22,7 @@
 				type: 'input-text',
 				label: 'Enter your name',
 				text: 'Your Name',
-				required: true
+				required: "required"
 			},
 			email: {
 				id: 'email',
@@ -30,7 +30,7 @@
 				label: 'Enter your email',
 				placeholder: 'address@example.com',
 				title: 'Enter your email',
-				required: true
+				required: "required"
 			},
 			phone: {
 				id: 'phone',
@@ -51,45 +51,24 @@
 					{ id: 'createdbyyou', text: "Fictional character created by you" },
 					{ id: 'multiple', text: "Multiple" },
 				],
-				required: true
+				required: "required"
 			},
 			gender: {
 				id: 'gender',
 				type: 'input-text',
-				label: "Enter your gender (Identity, i.e. how you perceive yourself romantically to	others)",
+				label: "Enter your what gender you are attracted to, if it doesn't matter, don't put anything:",
 				text: 'Your gender',
-				required: true
+				required: "required"
 			},
 			sexualAttraction: {
 				id: 'sexualAttraction',
 				type: 'input-text',
-				label: "Enter your what gender you are attracted to, if it doesn't matter, don't put anything:",
-				text: 'Your gender of attraction',
+				label: 'Your gender of attraction',
+				text: "Enter your what gender you are attracted to, if it doesn't matter, don't put anything:",
 				required: null
-			},
-			interests: {
-				id: 'interests',
-				type: 'input-text',
-				label: "Enter your interests",
-				text: 'Your interests',
-				required: true
-			},
-			location: {
-				id: 'location',
-				type: 'input-text',
-				label: "The town or city, state or province, and nation you live in. (So that you can try to find someone close by, and if we can ever leave, meet up in person!)",
-				text: 'Boston, MA USA',
-				required: true
 			},
 		}
 	}
-	/*
-<label for="about">About you or your character (please be as descriptive as possible – essay style if
-					you want!)<span class='gray'>*</span>:</label><br>
-				<textarea id="about" maxlength="100000" minlength="150" name="about" class="form-control"
-						  placeholder="Please be as descriptive as possible – essay style if you want!"
-						  required></textarea>
-	*/
 	Handlebars.registerHelper('input-text', function (c, o) {
 		var html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
 		<input type="text" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.text + '" ' + (c.required ? "require" : '') + ' class="form-control"></p>'
