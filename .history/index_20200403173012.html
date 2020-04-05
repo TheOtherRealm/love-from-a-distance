@@ -39,19 +39,43 @@
 
 <body>
 	<div id="app">
-		<h1 id="hTitle">{{{title}}}</h1>
 		<div id="formRapper">
 			<form id="intrestForm">
-				{{#input-text you.name}}{{{name}}}{{/input-text}}
-				{{#input-email you.email}}{{{email}}}{{/input-email}}
-				{{#input-tel you.phone}}{{{phone}}}{{/input-tel}}
-				<label>{{{you.waysto.label}}}</label>
-				<select name="waysto" multiple class="form-control">
-					{{#each you.waysto.option}}
-					<option value="{{this.id}}" id="{{this.id}}" class="form-control">{{{this.text}}}</option>
+				<h1 id="hTitle">{{title}}</h1>
+				<label>{{{waysto.label}}}</label>
+				<select name="waysto" multiple>
+					{{#each waysto.option}}
+					<option value="{{this.id}}" id="{{this.id}}">{{this.text}}</option>
 					{{/each}}
 				</select>
-				{{#input-text you.gender}}{{{gender}}}{{/input-text}}
+				<p>
+					<label for="name">Enter your name<span class='gray'>*</span>:</label><br>
+					<input type="text" id="name" name='name' placeholder="Your Name" required class="form-control">
+				</p>
+				<p>
+					<label for="email">Enter your email<span class='gray'>*</span>:</label><br>
+					<input type="email" id="email" name="email" placeholder="example@address.com"
+						   title="Enter your email" required class="form-control">
+				</p>
+				<p>
+					<label for="phone">Enter your phone number:</label><br>
+					<input type="tel" id="phone" name="phone" placeholder="1-234-567-8901" class="form-control"
+						   pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})"
+						   title="Enter your phone number">
+				</p>
+				<p>Would you like to be <span class="bold">yourself</span>, a <span class='bold'>predesigned</span>
+					fictional character<span class='gray superscript' title="(Potentially costs money)">$</span>, a
+					fictional character <span class='bold'>you create</span>, or <span class='bold'>multiple</span>
+					characters<span class='gray superscript' title="(Potentially costs money)">$</span>?<br>
+					<input type="radio" id="beyourself" name="be" value="yourself" required><label
+						   for="beyourself">Yourself </label> &nbsp;
+					<input type="radio" id="bepredesigned" name="be" value="predesigned" required><label
+						   for="bepredesigned">A predesigned fictional character</label>&nbsp;
+					<input type="radio" id="becreatedbyyou" name="be" value="createdbyyou" required><label
+						   for="becreatedbyyou">A fictional character created by you</label> &nbsp;
+					<input type="radio" id="bemultiple" name="be" value="multiple" required><label
+						   for="bemultiple">Multiple characters</label>
+				</p>
 				<p>
 					<label for="gender">Enter your gender (Identity, i.e. how you perceive yourself romantically to
 						others)<span class='gray'>*</span>:</label><br>

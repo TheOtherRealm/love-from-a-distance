@@ -44,14 +44,18 @@
 			<form id="intrestForm">
 				{{#input-text you.name}}{{{name}}}{{/input-text}}
 				{{#input-email you.email}}{{{email}}}{{/input-email}}
-				{{#input-tel you.phone}}{{{phone}}}{{/input-tel}}
+				<p>
+					<label for="phone">Enter your phone number:</label><br>
+					<input type="tel" id="phone" name="phone" placeholder="1-234-567-8901" class="form-control"
+						   pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})"
+						   title="Enter your phone number">
+				</p>
 				<label>{{{you.waysto.label}}}</label>
 				<select name="waysto" multiple class="form-control">
 					{{#each you.waysto.option}}
 					<option value="{{this.id}}" id="{{this.id}}" class="form-control">{{{this.text}}}</option>
 					{{/each}}
 				</select>
-				{{#input-text you.gender}}{{{gender}}}{{/input-text}}
 				<p>
 					<label for="gender">Enter your gender (Identity, i.e. how you perceive yourself romantically to
 						others)<span class='gray'>*</span>:</label><br>
