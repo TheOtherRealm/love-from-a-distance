@@ -167,6 +167,7 @@
 			}
 		});
 	}
+	window.location.r
 	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();

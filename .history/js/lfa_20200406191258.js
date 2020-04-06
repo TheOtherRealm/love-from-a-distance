@@ -180,7 +180,7 @@
 			}
 			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
 			console.log(serialized);
-			console.log(dataarr);
+			console.log(form);
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

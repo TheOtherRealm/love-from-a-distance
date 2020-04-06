@@ -170,7 +170,7 @@
 	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
-			let form = $(this);		
+			let form = $(this);			
 			let dataarr = new Array();
 			for(let i in form.data()) {
 				let subarr = new Array();
@@ -180,7 +180,7 @@
 			}
 			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
 			console.log(serialized);
-			console.log(dataarr);
+			console.log(form);
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

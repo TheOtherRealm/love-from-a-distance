@@ -40,7 +40,7 @@
 				<label>{{{you.waysto.label}}}</label>
 				<select name="waysto" multiple data-type="select-multiple" class="form-control" required>
 					{{#each you.waysto.option}}
-					<option value="{{this.id}}" id="{{this.id}}" name='{{this.id}}'  data-type="select-multiple"  class="form-control">{{{this.text}}}</option>
+					<option value="{{this.id}}" id="{{this.id}}" class="form-control">{{{this.text}}}</option>
 					{{/each}}
 				</select>
 				{{#input-text you.gender}}{{{gender}}}{{/input-text}}

@@ -170,17 +170,17 @@
 	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
-			let form = $(this);		
-			let dataarr = new Array();
-			for(let i in form.data()) {
-				let subarr = new Array();
+			var form = $(this);			
+			var dataarr = new Array();
+			for(var i in form.data()) {
+				var subarr = new Array();
 				subarr['name'] = i;
 				subarr['value'] = form.data()[i];
 				dataarr.push(subarr);
 			}
-			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
+			var serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
 			console.log(serialized);
-			console.log(dataarr);
+			console.log(form);
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {
@@ -189,7 +189,7 @@
 		});
 		$('#save').click(function (f) {
 			f.preventDefault();
-			let form = JSON.parse(JSON.stringify($('form').serializeArray()));
+			var form = JSON.parse(JSON.stringify($('form').serializeArray()));
 			console.log(f);
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
 				console.log(d);
@@ -197,7 +197,7 @@
 		});
 		$('#backB').click(function (f) {
 			f.preventDefault();
-			let form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
+			var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
 			formPage = $('#intrestForm').attr('name');
 			form.push({ "name": "form", "value": formPage });
 			console.log(f);
