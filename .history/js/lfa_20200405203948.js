@@ -87,7 +87,7 @@
 				label: "About you (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
 				required: false,
-				maxlength: 500000,
+				maxlength: 100000,
 				minlength: 150
 			},
 			objectives: {
@@ -96,21 +96,12 @@
 				label: "What are your objectives? What do you want to achive?",
 				text: 'Please be as descriptive as possible – essay style if you want!',
 				required: false,
-				maxlength: 500000,
+				maxlength: 100000,
 				minlength: 150
 			},
 		},
 		yourlover:{
-			id:'yourlover',
-			aboutyourlover:{
-				id:'aboutyourlover',
-				type: 'textarea',
-				label: "About the character you are looking to be matched up with (please be as descriptive as possible – essay style if you want!)",
-				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
-				maxlength: 500000,
-				minlength: 150
-			}
+			aboutyourlover:
 		}
 	}
 	/* 

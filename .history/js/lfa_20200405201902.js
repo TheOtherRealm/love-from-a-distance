@@ -87,7 +87,7 @@
 				label: "About you (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
 				required: false,
-				maxlength: 500000,
+				maxlength: 100000,
 				minlength: 150
 			},
 			objectives: {
@@ -96,27 +96,19 @@
 				label: "What are your objectives? What do you want to achive?",
 				text: 'Please be as descriptive as possible – essay style if you want!',
 				required: false,
-				maxlength: 500000,
+				maxlength: 100000,
 				minlength: 150
 			},
-		},
-		yourlover:{
-			id:'yourlover',
-			aboutyourlover:{
-				id:'aboutyourlover',
-				type: 'textarea',
-				label: "About the character you are looking to be matched up with (please be as descriptive as possible – essay style if you want!)",
-				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
-				maxlength: 500000,
-				minlength: 150
-			}
 		}
 	}
-	/* 
-	<label for="aboutyourlover">About the character you are looking to be matched up with (please be as descriptive as possible – essay style if you want!)<span class='gray'>*</span>:</label><br>
-					<textarea id="aboutyourlover" maxlength="100000" minlength="150" name="aboutyourlover" class="form-control" placeholder="Please be as descriptive as possible – essay style if you want!" required></textarea>
-	 */
+	/*
+
+				<label for="objectives">What are your objectives? What do you want to achive?<span
+						  class='gray'>*</span>:</label><br>
+				<textarea id="objectives" maxlength="100000" minlength="150" name="objectives" class="form-control"
+						  placeholder="Please be as descriptive as possible – essay style if you want!"
+						  required></textarea>
+	*/
 	Handlebars.registerHelper('textarea', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
 		<textarea id="'+ c.id + '" maxlength="100000" minlength="150" name="' + c.id + '" class="form-control" title="' + c.text + '" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' aria-required="' + (c.required ? true : false) + '" ></textarea>';
@@ -189,6 +181,7 @@
 		});
 		$('#backB').click(function (f) {
 			f.preventDefault();
+			var formPage = $(this).attr('data-button');
 			var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
 			formPage = $('#intrestForm').attr('name');
 			form.push({ "name": "form", "value": formPage });
