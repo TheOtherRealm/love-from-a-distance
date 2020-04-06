@@ -116,7 +116,7 @@
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
 		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
+		let html = '<input type="hidden" id="'+ c + '" name="' + c + '" value-"'+c+'">';
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {

@@ -58,7 +58,7 @@
 				type: 'input-text',
 				label: "Enter your gender (Identity, i.e. how you perceive yourself romantically to	others)",
 				text: 'Your gender',
-				required: false
+				required: true
 			},
 			sexualAttraction: {
 				id: 'sexualAttraction',
@@ -116,7 +116,7 @@
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
 		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
+		let html = '<input type="hidden" id="'+ c + '" name="' + c + '" value-"'+c+'">';
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {

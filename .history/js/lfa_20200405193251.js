@@ -17,7 +17,6 @@
 	const data = {
 		title: 'Love From Afar',
 		you: {
-			id:"you",
 			name: {
 				id: 'name',
 				type: 'input-text',
@@ -58,7 +57,7 @@
 				type: 'input-text',
 				label: "Enter your gender (Identity, i.e. how you perceive yourself romantically to	others)",
 				text: 'Your gender',
-				required: false
+				required: true
 			},
 			sexualAttraction: {
 				id: 'sexualAttraction',
@@ -72,7 +71,7 @@
 				type: 'input-text',
 				label: "Enter your interests",
 				text: 'Your interests',
-				required: false
+				required: true
 			},
 			location: {
 				id: 'location',
@@ -86,7 +85,7 @@
 				type: 'textarea',
 				label: "About you (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
+				required: true,
 				maxlength: 100000,
 				minlength: 150
 			},
@@ -95,7 +94,7 @@
 				type: 'textarea',
 				label: "What are your objectives? What do you want to achive?",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
+				required: true,
 				maxlength: 100000,
 				minlength: 150
 			},
@@ -115,8 +114,7 @@
 		return html;
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
-		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
+		let html = '<input type="hidden" id="'+ c.id + '" name="' + c.id + '">';
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {

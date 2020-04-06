@@ -17,7 +17,6 @@
 	const data = {
 		title: 'Love From Afar',
 		you: {
-			id:"you",
 			name: {
 				id: 'name',
 				type: 'input-text',
@@ -36,20 +35,21 @@
 			phone: {
 				id: 'phone',
 				type: 'input-tel',
-				label: 'Enter your phone number (ex: 1-234-567-8900)',
+				label: 'Enter your phone number',
 				placeholder: '1-234-567-8901',
-				title: 'Enter your phone number (ex: 1234567890)',
+				title: 'Enter your phone number',
 				pattern: "([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})",
 				required: null
 			},
 			waysto: {
 				id: 'waysto',
 				type: "select-multiple",
-				label: 'Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, or a fictional character<span class="bold"> you create</span>',
+				label: '<p>Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional character<span class="bold"> you create</span>, or <span class="bold">multiple</span> characters<span class="gray superscript" title="(Potentially costs money)">$</span>?<br>',
 				option: [
 					{ id: 'yourself', text: "Yourself" },
 					{ id: 'predesigned', text: "Predesigned" },
-					{ id: 'createdbyyou', text: "Fictional character created by you" }
+					{ id: 'createdbyyou', text: "Fictional character created by you" },
+					{ id: 'multiple', text: "Multiple" },
 				],
 				required: true
 			},
@@ -58,7 +58,7 @@
 				type: 'input-text',
 				label: "Enter your gender (Identity, i.e. how you perceive yourself romantically to	others)",
 				text: 'Your gender',
-				required: false
+				required: true
 			},
 			sexualAttraction: {
 				id: 'sexualAttraction',
@@ -72,7 +72,7 @@
 				type: 'input-text',
 				label: "Enter your interests",
 				text: 'Your interests',
-				required: false
+				required: true
 			},
 			location: {
 				id: 'location',
@@ -84,20 +84,20 @@
 			about: {
 				id: 'about',
 				type: 'textarea',
-				label: "About you (please be as descriptive as possible – essay style if you want!)",
+				label: "About you or your character (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
-				maxlength: 100000,
-				minlength: 150
+				required: true,
+				maxlength:100000,
+				minlength:150
 			},
 			objectives: {
 				id: 'objectives',
 				type: 'textarea',
 				label: "What are your objectives? What do you want to achive?",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
-				maxlength: 100000,
-				minlength: 150
+				required: true,
+				maxlength:100000,
+				minlength:150
 			},
 		}
 	}
@@ -111,28 +111,23 @@
 	*/
 	Handlebars.registerHelper('textarea', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<textarea id="'+ c.id + '" maxlength="100000" minlength="150" name="' + c.id + '" class="form-control" title="' + c.text + '" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' aria-required="' + (c.required ? true : false) + '" ></textarea>';
-		return html;
-	});
-	Handlebars.registerHelper('input-hidden', function (c, o) {
-		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
+		<textarea id="'+ c.id + '" maxlength="100000" minlength="150" name="'+ c.id + '" class="form-control" title="'+c.text+'" placeholder="'+ c.text + '" ' + (c.required ? "require" : '') + ' ></textarea>';
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="text" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.text + '" ></p>';
+		<input type="text" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.text + '" ' + (c.required ? "require" : '') + ' class="form-control" title="'+c.text+'"></p>'
 		return html;
 	});
 	Handlebars.registerHelper('input-email', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="email" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.title + '"></p>';
+		<input type="email" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.placeholder + '" ' + (c.required ? "require" : '') + ' class="form-control" title="'+c.title+'"></p>'
 		return html;
 	});
 	Handlebars.registerHelper('input-tel', function (c, o) {
 		// console.log(c, ';', o);
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control"></p>';
+		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" ' + (c.required ? "require" : '') + ' class="form-control"></p>'
 		return html;
 	});
 	/*
@@ -159,60 +154,43 @@
 			}
 		});
 	}
-	$(document).ready(function () {
-		$('form').submit(function (f) {
-			f.preventDefault();
+	$('.submit').click(function (f) {
+		if (hash) {
+			var formPage = $("form").attr('data-button');
 			var form = JSON.parse(JSON.stringify($("form").serializeArray()));
-			console.log(f);
-			// form.push({ "name": "form", "value":  });
-			console.log(form);
+			form.push({"name": "form", "value": formPage});
+			console.log(form,pages[formPage]);
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
 				console.log(d);
 			}).done(function () {
-				location.hash = 'yourlover';
+				location.href = pages[formPage];
 			});
-		});
-		$('#save').click(function (f) {
-			f.preventDefault();
-			var formPage = $(this).attr('data-button');
-			var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
-			//		formPage = form.value;
-			form.push({ "name": "form", "value": formPage });
-			console.log(f);
-			$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
-				console.log(d);
-			});
-		});
-		$('#backB').click(function (f) {
-			f.preventDefault();
-			var formPage = $(this).attr('data-button');
-			var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
-			formPage = $('#intrestForm').attr('name');
-			form.push({ "name": "form", "value": formPage });
-			console.log(f);
-			$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
-				console.log(d);
-			});
-			window.history.back();
-		});
+		}
+		f.preventDefault();
 	});
-	window.addEventListener('load', function () {
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
-		var forms = document.getElementsByClassName('needs-validation');
-		// Loop over them and prevent submission
-		var validation = Array.prototype.filter.call(forms, function (form) {
-			form.addEventListener('submit', function (event) {
-				if (form.checkValidity() === false) {
-					// form.classList.add('needs-validation');
-					event.preventDefault();
-					event.stopPropagation();
-				} 
-				// else {
-					form.classList.add('was-validated');
-				// }
-			}, false);
+	$('#save').click(function (f) {
+		var formPage = $(this).attr('data-button');
+		var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
+//		formPage = form.value;
+		form.push({"name": "form", "value": formPage});
+		console.log(f);
+		$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
+			console.log(d);
 		});
-	}, false);
+		f.preventDefault();
+	});
+	$('#backB').click(function (f) {
+		var formPage = $(this).attr('data-button');
+		var form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
+		formPage = $('#intrestForm').attr('name');
+		form.push({"name": "form", "value": formPage});
+		console.log(f);
+		$.post('../../love-from-afar-ss/love-from-afar-ss.php', form, function (d) {
+			console.log(d);
+		});
+		window.history.back();
+		f.preventDefault();
+	});
 	var body = $('#app').html();
 	var template = Handlebars.compile(body);
 	// console.log(data.you);

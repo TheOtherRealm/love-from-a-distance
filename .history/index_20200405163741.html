@@ -33,7 +33,6 @@
 		<h1 id="hTitle">{{{title}}}</h1>
 		<div id="formRapper">
 			<form id="you" name="you" class="">
-				{{#input-hidden you.id}}{{{id}}}{{/input-hidden}}
 				{{#input-text you.name}}{{{name}}}{{/input-text}}
 				{{#input-email you.email}}{{{email}}}{{/input-email}}
 				{{#input-tel you.phone}}{{{phone}}}{{/input-tel}}
@@ -59,7 +58,7 @@
 									id="save" name="save">Save</button>
 							<button type="submit" formenctype="application/x-www-form-urlencoded" form='you'
 									class="submit btn btn-primary" id="submit" name="submit"
-									formmethod="post">Next ></button>
+									formmethod="post">Submit</button>
 				</p>
 			</form>
 		</div>

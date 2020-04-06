@@ -17,7 +17,6 @@
 	const data = {
 		title: 'Love From Afar',
 		you: {
-			id:"you",
 			name: {
 				id: 'name',
 				type: 'input-text',
@@ -58,7 +57,7 @@
 				type: 'input-text',
 				label: "Enter your gender (Identity, i.e. how you perceive yourself romantically to	others)",
 				text: 'Your gender',
-				required: false
+				required: true
 			},
 			sexualAttraction: {
 				id: 'sexualAttraction',
@@ -72,7 +71,7 @@
 				type: 'input-text',
 				label: "Enter your interests",
 				text: 'Your interests',
-				required: false
+				required: true
 			},
 			location: {
 				id: 'location',
@@ -86,7 +85,7 @@
 				type: 'textarea',
 				label: "About you (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
+				required: true,
 				maxlength: 100000,
 				minlength: 150
 			},
@@ -95,7 +94,7 @@
 				type: 'textarea',
 				label: "What are your objectives? What do you want to achive?",
 				text: 'Please be as descriptive as possible – essay style if you want!',
-				required: false,
+				required: true,
 				maxlength: 100000,
 				minlength: 150
 			},
@@ -115,24 +114,23 @@
 		return html;
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
-		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
+		let html = '<input type="hidden" id="'+ c.id + '" name="' + c.id + '">'
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="text" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.text + '" ></p>';
+		<input type="text" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.text + '" ></p>'
 		return html;
 	});
 	Handlebars.registerHelper('input-email', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="email" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.title + '"></p>';
+		<input type="email" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.title + '"></p>'
 		return html;
 	});
 	Handlebars.registerHelper('input-tel', function (c, o) {
 		// console.log(c, ';', o);
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control"></p>';
+		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control"></p>'
 		return html;
 	});
 	/*

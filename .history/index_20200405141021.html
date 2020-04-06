@@ -23,7 +23,6 @@
 	<link href="css/lfa.css" rel="stylesheet" type="text/css" />
 	<script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 	<script src="node_modules/handlebars/dist/handlebars.js" type="text/javascript"></script>
-	<script src="js/handlebars-form-helpers-master/src/handlebars.form-helpers.js"></script>
 	<script src="node_modules/@yaireo/tagify/dist/tagify.min.js" type="text/javascript"></script>
 	<script src="node_modules/@yaireo/tagify/dist/tagify.polyfills.min.js" type="text/javascript"></script>
 </head>
@@ -32,13 +31,12 @@
 	<div id="app">
 		<h1 id="hTitle">{{{title}}}</h1>
 		<div id="formRapper">
-			<form id="you" name="you" class="">
-				{{#input-hidden you.id}}{{{id}}}{{/input-hidden}}
+			<form id="you" class="needs-validation">
 				{{#input-text you.name}}{{{name}}}{{/input-text}}
 				{{#input-email you.email}}{{{email}}}{{/input-email}}
 				{{#input-tel you.phone}}{{{phone}}}{{/input-tel}}
 				<label>{{{you.waysto.label}}}</label>
-				<select name="waysto" multiple class="form-control" required>
+				<select name="waysto" multiple class="form-control">
 					{{#each you.waysto.option}}
 					<option value="{{this.id}}" id="{{this.id}}" class="form-control">{{{this.text}}}</option>
 					{{/each}}
@@ -53,13 +51,8 @@
 					<em><span class='gray'>(*=Required &nbsp; $=Has the potential to cost something)</span></em>
 				</p>
 				<p>
-					<button class="btn purpleB" onclick="" id="backB">
-						< Back</button>
-							<button type="button" data-button="yourlover" form='intrestForm' class="btn btn-primary"
-									id="save" name="save">Save</button>
-							<button type="submit" formenctype="application/x-www-form-urlencoded" form='you'
-									class="submit btn btn-primary" id="submit" name="submit"
-									formmethod="post">Next ></button>
+					<button type="submit" formenctype="application/x-www-form-urlencoded" form='you'
+							class="submit btn btn-primary" id="submit" name="submit" formmethod="post">Submit</button>
 				</p>
 			</form>
 		</div>
@@ -68,5 +61,4 @@
 	<script src="node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
 	<script src="js/lfa.js" type="text/javascript"></script>
 </body>
-
 </html>
