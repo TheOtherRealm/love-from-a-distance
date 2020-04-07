@@ -45,7 +45,7 @@
 			waysto: {
 				id: 'waysto',
 				type: "select-multiple",
-				label: 'Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional character<span class="bold"> you create</span> or some/all of the choices?',
+				label: 'Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, or a fictional character<span class="bold"> you create</span>',
 				option: [
 					{ id: 'yourself', text: "Yourself" },
 					{ id: 'predesigned', text: "Predesigned" },
@@ -176,8 +176,8 @@
 			// 
 			// console.log(dataarr, $('#'+form.attr('id')+' input'));
 			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (i, e) {
-				console.log({id:$(this)[0].id,value:$(this)[0].value,type:$(this).data("type")},serialized[i]);
-				serialized[$(this)[0].id]=({id:$(this)[0].id,value:$(this)[0].value,type:$(this).data("type")});
+				console.log(($(this).push($(this).data("type"))).serializeArray(),$(this).data("type"),serialized[i]);
+				serialized=($(this).push($(this).data("type"))).serializeArray();
 			})
 			// .then(function(){
 			// 	serialized=JSON.parse(JSON.stringify(dataarr));
@@ -185,7 +185,7 @@
 			// })
 			// serialized=JSON.parse(JSON.stringify(dataarr));
 			console.log(serialized);
-			$.post('../../love-from-afar-ss/love-from-afar-ss.php', JSON.parse(JSON.stringify(serialized)), function (d) {
+			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {
 				location.hash = 'yourlover';

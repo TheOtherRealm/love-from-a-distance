@@ -45,7 +45,7 @@
 			waysto: {
 				id: 'waysto',
 				type: "select-multiple",
-				label: 'Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, a fictional character<span class="bold"> you create</span> or some/all of the choices?',
+				label: 'Would you like to be <span class="bold">yourself</span>, a <span class="bold">predesigned</span> fictional character<span class="gray superscript" title="(Potentially costs money)">$</span>, or a fictional character<span class="bold"> you create</span>',
 				option: [
 					{ id: 'yourself', text: "Yourself" },
 					{ id: 'predesigned', text: "Predesigned" },
