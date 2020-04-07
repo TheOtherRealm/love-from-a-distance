@@ -17,7 +17,7 @@
 	const data = {
 		title: 'Love From Afar',
 		you: {
-			id: "you",
+			id:"you",
 			name: {
 				id: 'name',
 				type: 'input-text',
@@ -100,10 +100,10 @@
 				minlength: 150
 			},
 		},
-		yourlover: {
-			id: 'yourlover',
-			aboutyourlover: {
-				id: 'aboutyourlover',
+		yourlover:{
+			id:'yourlover',
+			aboutyourlover:{
+				id:'aboutyourlover',
 				type: 'textarea',
 				label: "About the character you are looking to be matched up with (please be as descriptive as possible – essay style if you want!)",
 				text: 'Please be as descriptive as possible – essay style if you want!',
@@ -124,23 +124,23 @@
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
 		console.log(c, ';', o);
-		let html = '<input type="hidden" id="form" name="form" value="' + c + '">';
+		let html = '<input type="hidden" id="form" name="form" value="'+c+'">';
 		return html;
 	});
 	Handlebars.registerHelper('input-text', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="text" id="'+ c.id + '" name="' + c.id + '" data-type="input-text" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.text + '" ></p>';
+		<input type="text" id="'+ c.id + '" name="' + c.id + '" data-type="select-multiple" placeholder="' + c.text + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.text + '" ></p>';
 		return html;
 	});
 	Handlebars.registerHelper('input-email', function (c, o) {
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="email" id="'+ c.id + '" name="' + c.id + '" data-type="input-email" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.title + '"></p>';
+		<input type="email" id="'+ c.id + '" name="' + c.id + '" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control" title="' + c.title + '"></p>';
 		return html;
 	});
 	Handlebars.registerHelper('input-tel', function (c, o) {
 		// console.log(c, ';', o);
 		let html = '<p><label for="' + c.id + '">' + c.label + (c.required ? '<span class="gray">*</span>:' : ':') + '</label><br>\
-		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" data-type="input-tel" ' + (c.required ? "required" : '') + ' class="form-control"></p>';
+		<input type="tel" id="'+ c.id + '" name="' + c.id + '" pattern="([0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{11}|[0-9]{10})" placeholder="' + c.placeholder + '" ' + (c.required ? "required" : '') + ' class="form-control"></p>';
 		return html;
 	});
 	/*
@@ -170,22 +170,17 @@
 	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
-			let form = $(this);
+			let form = $(this);		
 			let dataarr = new Array();
-			// $('').each(function (i, e) {
-			// 		let subarr = new Array();
-			// 		console.log($(el).html());
-			// 		// subarr['name'] = "type";
-			// 		// subarr['value'] = e[i];
-			// 		// dataarr.push(subarr);
-			// });
+			for(let i in form.data()) {
+				let subarr = new Array();
+				subarr['name'] = i;
+				subarr['value'] = form.data()[i];
+				dataarr.push(subarr);
+			}
 			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
-			// console.log(serialized,form.attr('id')+' :input');
-			// console.log(dataarr, $('#'+form.attr('id')+' input'));
-
-			$('#'+form.attr('id')+' input, #'+form.attr('id')+' select').each(function(i,e){
-				console.log($(this).data("type"));
-			})
+			console.log(serialized);
+			console.log(form.data());
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

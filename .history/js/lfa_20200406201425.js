@@ -172,20 +172,15 @@
 			f.preventDefault();
 			let form = $(this);
 			let dataarr = new Array();
-			// $('').each(function (i, e) {
-			// 		let subarr = new Array();
-			// 		console.log($(el).html());
-			// 		// subarr['name'] = "type";
-			// 		// subarr['value'] = e[i];
-			// 		// dataarr.push(subarr);
-			// });
+			form.each(function (i,e) {
+				let subarr = new Array();
+				subarr['name'] = i;
+				subarr['value'] = e.data()[i];
+				dataarr.push(subarr);
+			});
 			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
-			// console.log(serialized,form.attr('id')+' :input');
-			// console.log(dataarr, $('#'+form.attr('id')+' input'));
-
-			$('#'+form.attr('id')+' input, #'+form.attr('id')+' select').each(function(i,e){
-				console.log($(this).data("type"));
-			})
+			console.log(serialized);
+			console.log(form.data('type'));
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

@@ -170,7 +170,7 @@
 	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
-			let form = $(this);
+			let form = $(this).;
 			let dataarr = new Array();
 			// $('').each(function (i, e) {
 			// 		let subarr = new Array();
@@ -180,12 +180,8 @@
 			// 		// dataarr.push(subarr);
 			// });
 			let serialized = JSON.parse(JSON.stringify(form.serializeArray().concat(dataarr)));
-			// console.log(serialized,form.attr('id')+' :input');
-			// console.log(dataarr, $('#'+form.attr('id')+' input'));
-
-			$('#'+form.attr('id')+' input, #'+form.attr('id')+' select').each(function(i,e){
-				console.log($(this).data("type"));
-			})
+			console.log(serialized);
+			console.log(dataarr, form.attr(id));
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

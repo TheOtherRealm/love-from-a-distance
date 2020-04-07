@@ -184,7 +184,7 @@
 			// console.log(dataarr, $('#'+form.attr('id')+' input'));
 
 			$('#'+form.attr('id')+' input, #'+form.attr('id')+' select').each(function(i,e){
-				console.log($(this).data("type"));
+				console.log(e.data("type"));
 			})
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
