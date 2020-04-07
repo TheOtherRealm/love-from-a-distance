@@ -172,19 +172,13 @@
 			f.preventDefault();
 			let form = $(this);
 			let dataarr = new Array();
-			let serialized = {};//
-			// 
-			// console.log(dataarr, $('#'+form.attr('id')+' input'));
+			let serialized = JSON.parse(JSON.stringify(form.serializeArray()));//.concat(dataarr)
 			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (i, e) {
-				console.log(JSON.parse($(this).serialize().concat('&type='+$(this).data("type"))),$(this).data("type"),serialized[i]);
-				serialized[i]=(JSON.parse($(this).serializeArray().concat('&type='+$(this).data("type"))));
+				// console.log($(this).data("type"));
+				dataarr.push({ "name": "type", "value": $(this).data("type") });
 			})
-			// .then(function(){
-			// 	serialized=JSON.parse(JSON.stringify(dataarr));
-			// 	console.log(serialized);
-			// })
-			// serialized=JSON.parse(JSON.stringify(dataarr));
-			console.log(serialized);
+			console.log(serialized,dataarr);
+			// console.log(dataarr, $('#'+form.attr('id')+' input'));
 			$.post('../../love-from-afar-ss/love-from-afar-ss.php', serialized, function (d) {
 				console.log(d);
 			}).done(function () {

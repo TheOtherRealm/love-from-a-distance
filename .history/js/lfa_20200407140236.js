@@ -176,8 +176,8 @@
 			// 
 			// console.log(dataarr, $('#'+form.attr('id')+' input'));
 			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (i, e) {
-				console.log(JSON.parse($(this).serialize().concat('&type='+$(this).data("type"))),$(this).data("type"),serialized[i]);
-				serialized[i]=(JSON.parse($(this).serializeArray().concat('&type='+$(this).data("type"))));
+				console.log(JSON.parse(JSON.stringify($(this).serialize().concat('&type='+$(this).data("type")))),$(this).data("type"),serialized[i]);
+				serialized[i]=(JSON.parse(JSON.stringify($(this).serializeArray().concat('&type='+$(this).data("type")))));
 			})
 			// .then(function(){
 			// 	serialized=JSON.parse(JSON.stringify(dataarr));
