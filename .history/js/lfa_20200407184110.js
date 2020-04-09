@@ -123,7 +123,7 @@
 		return html;
 	});
 	Handlebars.registerHelper('input-hidden', function (c, o) {
-		// console.log(c, ';', o);
+		console.log(c, ';', o);
 		let html = '<input type="hidden" id="form" name="form" value="' + c + '">';
 		return html;
 	});
@@ -167,12 +167,7 @@
 			}
 		});
 	}
-	$(document).ready(function () {		
-		$.post('../../love-from-afar-ss/love-from-afar-ss.php', {"action":"loaddata","email":"the@otherrealm.org"}, function (d) {
-			console.log(d);
-		}).done(function () {
-			// location.hash = 'yourlover';
-		});
+	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
 			let form = $(this);
@@ -180,14 +175,12 @@
 			let serialized = {};//
 			// 
 			// console.log(dataarr, $('#'+form.attr('id')+' input'));
-			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (inte, el) {
-				$(el).each(function (i, e) {
-					console.log({ id: e.id, value: e.value, type: $(this).data("type") }, serialized[i]);
-					serialized[e.id]={ id: e.id, value: e.value, type: $(this).data("type") };
-				});
-			});
+			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (i, e) {
+				console.log({id:$(this)[0].id,value:$(this)[0].value,type:$(this).data("type")},serialized[i]);
+				dataarr.push({id:$(this)[0].id,value:$(this)[0].value,type:$(this).data("type")});
+			})
 			// .then(function(){
-			serialized = JSON.parse(JSON.stringify(serialized));
+			serialized=JSON.parse(JSON.stringify(dataarr));
 			// 	console.log(serialized);
 			// })
 			// serialized=JSON.parse(JSON.stringify(dataarr));

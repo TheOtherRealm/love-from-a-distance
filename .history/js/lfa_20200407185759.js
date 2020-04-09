@@ -167,12 +167,7 @@
 			}
 		});
 	}
-	$(document).ready(function () {		
-		$.post('../../love-from-afar-ss/love-from-afar-ss.php', {"action":"loaddata","email":"the@otherrealm.org"}, function (d) {
-			console.log(d);
-		}).done(function () {
-			// location.hash = 'yourlover';
-		});
+	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
 			let form = $(this);
@@ -187,7 +182,7 @@
 				});
 			});
 			// .then(function(){
-			serialized = JSON.parse(JSON.stringify(serialized));
+			serialized = JSON.parse(JSON.stringify(dataarr));
 			// 	console.log(serialized);
 			// })
 			// serialized=JSON.parse(JSON.stringify(dataarr));

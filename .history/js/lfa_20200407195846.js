@@ -167,12 +167,7 @@
 			}
 		});
 	}
-	$(document).ready(function () {		
-		$.post('../../love-from-afar-ss/love-from-afar-ss.php', {"action":"loaddata","email":"the@otherrealm.org"}, function (d) {
-			console.log(d);
-		}).done(function () {
-			// location.hash = 'yourlover';
-		});
+	$(document).ready(function () {
 		$('form').submit(function (f) {
 			f.preventDefault();
 			let form = $(this);
@@ -182,8 +177,8 @@
 			// console.log(dataarr, $('#'+form.attr('id')+' input'));
 			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (inte, el) {
 				$(el).each(function (i, e) {
-					console.log({ id: e.id, value: e.value, type: $(this).data("type") }, serialized[i]);
-					serialized[e.id]={ id: e.id, value: e.value, type: $(this).data("type") };
+					console.log(!$(this).data("type") )?e.id:$(this).data("type"),{ id: e.id, value: e.value, type: $(this).data("type") }, serialized[i]);
+					serialized[(!$(this).data("type") )?e.id:$(this).data("type")]={ id: e.id, value: e.value, type: $(this).data("type") };
 				});
 			});
 			// .then(function(){

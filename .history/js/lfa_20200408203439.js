@@ -168,10 +168,10 @@
 		});
 	}
 	$(document).ready(function () {		
-		$.post('../../love-from-afar-ss/love-from-afar-ss.php', {"action":"loaddata","email":"the@otherrealm.org"}, function (d) {
+		$.post('../../love-from-afar-ss/love-from-afar-ss.php', {"action":"loaddata"}, function (d) {
 			console.log(d);
 		}).done(function () {
-			// location.hash = 'yourlover';
+			location.hash = 'yourlover';
 		});
 		$('form').submit(function (f) {
 			f.preventDefault();
