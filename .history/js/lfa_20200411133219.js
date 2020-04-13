@@ -167,50 +167,30 @@
 			}
 		});
 	}
-	function saveData(data){
-		
-	}
 	$(document).ready(function () {
-		var db = new PouchDB('http://localhost:5984/lfa');
-		db.on('error', function (err) { console.log(err); });
+		var db = new PouchDB('kittens');
 		$('form').submit(function (f) {
 			f.preventDefault();
 			let form = $(this);
-			var id=$('#email').val();
-			console.log($(this).attr('id')); 
-			var serialized = {};
-			const p = new Promise((resolve, reject) => {
-				resolve($('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (inte, el) {
-					$(el).each(function (i, e) {
-						// console.log({ id: e.id, value: e.value, type: $(this).data("type") }, serialized[i]);
-						serialized[e.id] = { id: e.id, value: e.value, type: $(this).data("type") };
-					});
-				}));
-			}).then(s => {
-				serialized = JSON.parse(JSON.stringify(serialized));
-				console.log(s.val(),serialized);
-				db.upsert(s.val(),{ "_id": id, "data": serialized }).then(function(d){
-					console.log(d);
+			let dataarr = new Array();
+			let serialized = {};//
+			$('#' + form.attr('id') + ' input, #' + form.attr('id') + ' select, #' + form.attr('id') + ' textarea').each(function (inte, el) {
+				$(el).each(function (i, e) {
+					console.log({ id: e.id, value: e.value, type: $(this).data("type") }, serialized[i]);
+					serialized[e.id] = { id: e.id, value: e.value, type: $(this).data("type") };
 				});
-			}).then(function () {
-				db.get(id).then(function (doc) {
-					console.log(doc);
-				})
-			})
-
+			});
+			serialized = JSON.parse(JSON.stringify(serialized));
+			console.log(serialized);
 		});
 		$('#getdbinfo').click(function () {
 			db.info().then(function (info) {
 				$('#dbinfo').text(info);
-				console.log(info);
 			})
 		});
 		$('#save').click(function (f) {
 			f.preventDefault();
-			db.put({ "_id": $('form').attr('id'), "data": $('form').serializeArray() });
-			db.get($('form').attr('id')).then(function (doc) {
-				console.log(doc);
-			})
+			let form = JSON.parse(JSON.stringify($('form').serializeArray()));
 		});
 		$('#backB').click(function (f) {
 			f.preventDefault();

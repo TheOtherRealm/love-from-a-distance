@@ -167,9 +167,6 @@
 			}
 		});
 	}
-	function saveData(data){
-		
-	}
 	$(document).ready(function () {
 		var db = new PouchDB('http://localhost:5984/lfa');
 		db.on('error', function (err) { console.log(err); });

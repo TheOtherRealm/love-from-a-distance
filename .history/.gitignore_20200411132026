@@ -109,7 +109,3 @@ dist
 love-from-afar/
 love-from-afar-react/
 db/
-_replicator/
-_users/
-pouch__all_dbs__/
-lfa/

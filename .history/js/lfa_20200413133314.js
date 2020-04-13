@@ -167,9 +167,6 @@
 			}
 		});
 	}
-	function saveData(data){
-		
-	}
 	$(document).ready(function () {
 		var db = new PouchDB('http://localhost:5984/lfa');
 		db.on('error', function (err) { console.log(err); });
@@ -188,8 +185,8 @@
 				}));
 			}).then(s => {
 				serialized = JSON.parse(JSON.stringify(serialized));
-				console.log(s.val(),serialized);
-				db.upsert(s.val(),{ "_id": id, "data": serialized }).then(function(d){
+				console.log(serialized);
+				db.upsert(id,{ "_id": id, "data": serialized }).then(function(d){
 					console.log(d);
 				});
 			}).then(function () {
