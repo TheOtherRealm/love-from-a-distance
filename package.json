@@ -20,25 +20,22 @@
 	},
 	"homepage": "https://github.com/TheOtherRealm/love-from-afar#readme",
 	"dependencies": {
-		"@ionic/cli": "^6.3.0",
-		"@ionic/pwa-elements": "^1.5.1",
-		"@popperjs/core": "^2.1.1",
-		"@yaireo/tagify": "^3.6.3",
+		"@popperjs/core": "^2.4.0",
+		"@yaireo/tagify": "^3.7.2",
 		"bootstrap": "4.4.1",
 		"cordova-plugin-geolocation": "^4.0.2",
-		"core-js": "^3.6.4",
-		"crypto-js": "^4.0.0",
+		"core-js": "^3.6.5",
 		"handlebars": "^4.7.6",
-		"jquery": "3.4.1",
+		"jquery": "3.5.0",
 		"jquery-validation": "^1.19.1",
 		"minimist": "^1.2.5",
-		"mkdirp": "^1.0.3",
+		"mkdirp": "^1.0.4",
 		"mustache": "^4.0.1",
 		"nodejs": "0.0.0",
-		"npm": "^6.14.3",
+		"npm": "^6.14.4",
 		"pouchdb": "^7.2.1",
 		"pouchdb-debug": "7.2.1",
-		"request": "^2.88.2",
-		"vue": "^2.6.11"
+		"pouchdb-upsert": "^2.2.0",
+		"request": "^2.88.2"
 	}
 }

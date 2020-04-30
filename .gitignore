@@ -113,3 +113,4 @@ _replicator/
 _users/
 pouch__all_dbs__/
 lfa/
+.history/
