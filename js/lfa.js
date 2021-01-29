@@ -13,6 +13,9 @@
  */
 /* global tagify, CryptoJS 
 */
+import PouchDB from "pouchdb.js";
+import debugPouch from "../node_modules/pouchdb-debug/lib/index.js";
+debugPouch(PouchDB);
 (function () {
 	const data = {
 		title: 'Love From Afar',
@@ -170,10 +173,11 @@
 	function saveData(data){
 		
 	}
-	$(document).ready(function () {
+	jQuery(function () {
 		var db = new PouchDB('http://localhost:5984/lfa');
+		window.PouchDB.debug.enable('*');
 		db.on('error', function (err) { console.log(err); });
-		$('form').submit(function (f) {
+		$('form').on('submit',function (f) {
 			f.preventDefault();
 			let form = $(this);
 			var id=$('#email').val();
@@ -205,14 +209,14 @@
 				console.log(info);
 			})
 		});
-		$('#save').click(function (f) {
+		$('#save').on('click',function (f) {
 			f.preventDefault();
 			db.put({ "_id": $('form').attr('id'), "data": $('form').serializeArray() });
 			db.get($('form').attr('id')).then(function (doc) {
 				console.log(doc);
 			})
 		});
-		$('#backB').click(function (f) {
+		$('#backB').on('click',function (f) {
 			f.preventDefault();
 			let form = JSON.parse(JSON.stringify($('#intrestForm').serializeArray()));
 			console.log(f);
