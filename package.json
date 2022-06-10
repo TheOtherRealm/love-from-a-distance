@@ -21,7 +21,7 @@
 	"homepage": "https://github.com/TheOtherRealm/love-from-afar#readme",
 	"dependencies": {
 		"@popperjs/core": "^2.4.0",
-		"@yaireo/tagify": "^3.7.2",
+		"@yaireo/tagify": "^4.9.8",
 		"bootstrap": "4.4.1",
 		"cordova-plugin-geolocation": "^4.0.2",
 		"core-js": "^3.6.5",
