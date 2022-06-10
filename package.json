@@ -27,7 +27,7 @@
 		"core-js": "^3.6.5",
 		"handlebars": "^4.7.6",
 		"jquery": "3.5.0",
-		"jquery-validation": "^1.19.3",
+		"jquery-validation": "^1.19.4",
 		"minimist": "^1.2.5",
 		"mkdirp": "^1.0.4",
 		"mustache": "^4.0.1",
